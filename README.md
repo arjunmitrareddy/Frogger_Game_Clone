@@ -1,9 +1,11 @@
-# Frogger Game Clone Application
-A Frogger Game Clone using Javascript PsuedoClassical Pattern
+# Offline First Frogger Game Clone Application
+An Offline First Frogger Game Clone using Javascript PsuedoClassical Pattern
 
 ##[DEMO](https://frogger-amr.firebaseapp.com/)
 
 ##Technologies Used:
+[Service Worker] (https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+
 JavaScript
 
 HTML5
