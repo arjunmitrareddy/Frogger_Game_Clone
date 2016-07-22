@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Frogger Game</title>
+    <link rel="icon" href="images/frogger.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1 id="score">Score:</h1>
+<h2 id="message"></h2>
+<h2 id="hiscore"></h2>
+<div id="diffDiv">
+    Select Difficulty:
+    <button class="diffButton" onclick="difficultyHandler(event, 'easy')">Easy</button>
+    <button class="diffButton" onclick="difficultyHandler(event, 'med')">Medium</button>
+    <button class="diffButton" onclick="difficultyHandler(event, 'hard')">Hard</button>
+    <button class="diffButton" onclick="difficultyHandler(event, 'master')">Master</button>
+    <button class="diffButton" onclick="difficultyHandler(event, 'imp')">Impossible</button>
+</div>
+<div id="charDiv">
+    <h3>Select Character:</h3>
+    <a href="#"><img src="images/char-boy.png" onclick="char(1)"/></a>
+    <a href="#"><img src="images/char-cat-girl.png" onclick="char(2)"/></a>
+    <a href="#"><img src="images/char-horn-girl.png" onclick="char(3)"/></a>
+    <a href="#"><img src="images/char-pink-girl.png" onclick="char(4)"/></a>
+    <a href="#"><img src="images/char-princess-girl.png" onclick="char(5)"/></a>
+</div>
+<div>
+    <button id="begin" class="diffButton" onclick="start()">Begin Game!</button>
+</div>
+<script src="js/resourceLoader.js"></script>
+<script src="js/eventHandlers.js"></script>
+<script src="js/app.js"></script>
+<script src="js/engine.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDvOjNp5ECoDmSP1oUe6BEnPe897CdduC8",
+        authDomain: "frogger-amr.firebaseapp.com",
+        databaseURL: "https://frogger-amr.firebaseio.com",
+        storageBucket: "",
+    };
+    firebase.initializeApp(config);
+</script>
+</body>
+</html>
