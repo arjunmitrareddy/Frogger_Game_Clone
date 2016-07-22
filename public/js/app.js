@@ -92,7 +92,7 @@ function registerServiceWorker() {
             return;
         }
         if (registrationObject.waiting) { //means service worker is ready to be updated
-            this.updateView(registrationObject.waiting);
+            worker.postMessage({skipWait: true});
         }
         if (registrationObject.installing) {
             trackInstall(registrationObject.installing);
@@ -110,19 +110,7 @@ registerServiceWorker();
 function trackInstall(worker) {
     worker.addEventListener('statechange', () => {
         if (worker.state == 'installed') {
-            updateView(worker);
+            worker.postMessage({skipWait: true});
         }
     })
-}
-function updateView(worker) {
-    var notification = this._notificationView.show("New Version Available", {
-        buttons: ['refresh', 'dismiss']
-    });
-    notification.answer.then((answer) => {
-        if (answer != 'refresh') {
-            return;
-        }
-        worker.postMessage({skipWait: true});
-    })
-
 }
