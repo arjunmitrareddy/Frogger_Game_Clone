@@ -83,3 +83,46 @@ function init(sprite) {
     hi.style.visibility = "visible";
     begin.style.visibility = "hidden";
 }
+function registerServiceWorker() {
+    if (!navigator.serviceWorker) {
+        return;
+    }
+    navigator.serviceWorker.register('serviceWorker.js').then((registrationObject) => {
+        if (!navigator.serviceWorker.controller) {
+            return;
+        }
+        if (registrationObject.waiting) { //means service worker is ready to be updated
+            this.updateView(registrationObject.waiting);
+        }
+        if (registrationObject.installing) {
+            trackInstall(registrationObject.installing);
+            return;
+        }
+        registrationObject.addEventListener('updatefound', () => {
+            trackInstall(registrationObject.installing);
+        });
+        navigator.serviceWorker.controller.addEventListener('controllerchange', () => {
+            window.location.reload();
+        });
+    });
+}
+registerServiceWorker();
+function trackInstall(worker) {
+    worker.addEventListener('statechange', () => {
+        if (worker.state == 'installed') {
+            updateView(worker);
+        }
+    })
+}
+function updateView(worker) {
+    var notification = this._notificationView.show("New Version Available", {
+        buttons: ['refresh', 'dismiss']
+    });
+    notification.answer.then((answer) => {
+        if (answer != 'refresh') {
+            return;
+        }
+        worker.postMessage({skipWait: true});
+    })
+
+}
