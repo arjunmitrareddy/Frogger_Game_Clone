@@ -4,14 +4,11 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
-    window.canvas =canvas;
+    window.canvas = canvas;
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
     canvas.style.visibility = "hidden";
-    canvas.addEventListener('touchstart', function (e) {
-        touchHandle(e);
-    });
     function main() {
         var now = Date.now(),
             dt = (now - lastTime) / 1000.0;

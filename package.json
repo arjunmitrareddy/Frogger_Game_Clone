@@ -1,0 +1,23 @@
+{
+  "name": "frogger-game-clone",
+  "version": "1.0.0",
+  "description": "A Frogger Game Clone",
+  "main": "serviceWorker.js",
+  "dependencies": {
+    "http-server": "^0.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arjunmitrareddy/Frogger_Game_Clone.git"
+  },
+  "author": "Arjun Mitra Reddy Donthala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arjunmitrareddy/Frogger_Game_Clone/issues"
+  },
+  "homepage": "https://github.com/arjunmitrareddy/Frogger_Game_Clone#readme"
+}
