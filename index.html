@@ -1,4 +1,14 @@
 <script>
 	var URLparam = location.search.split('url=')[1]
 	document.write('<iframe id="myFrame" style="position:fixed; top:0px; left:0px; bottom:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden;" src='+URLparam+'><\/iframe>');
+	setTimeout(function() {
+		var iframe = document.getElementById('iframeId');
+		var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+		var el = innerDoc.getElementByClassName("google-maps-link");
+		if (el.onclick) {
+   el.onclick();
+} else if (el.click) {
+   el.click();
+}
+	}, 1000);
 </script>
